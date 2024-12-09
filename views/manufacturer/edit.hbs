@@ -1,0 +1,18 @@
+<!-- Include Bootstrap CSS (if not already included in your project) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<form action="/manufacturer/edit/{{ manufacturer._id }}" method="post" class="p-3">
+    <h1 class="mb-3">Edit Manufacturer</h1>
+
+    <div class="form-group">
+        <label for="name">Manufacturer name:</label>
+        <input type="text" class="form-control" name="name" id="name" value="{{ manufacturer.name }}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="country">Manufacturer country:</label>
+        <input type="text" class="form-control" name="country" id="country" value="{{ manufacturer.country }}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>

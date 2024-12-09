@@ -1,0 +1,54 @@
+<form action="/toy/edit/{{ toy._id }}" method="post" class="p-4">
+    <h1 class="mb-3">Edit Toy</h1>
+
+    <div class="form-group">
+        <label for="model">Toy Model:</label>
+        <input type="text" class="form-control" name="model" id="model" required value="{{ toy.model }}">
+    </div>
+    <div class="form-group">
+        <label for="price">Toy Price:</label>
+        <input type="number" class="form-control" name="price" id="price" required value="{{ toy.price }}">
+    </div>
+
+    <div class="form-group">
+        <label for="image">Toy Image:</label>
+        <input type="url" class="form-control" name="image" id="image" required value="{{ toy.image }}">
+        <img src="{{ toy.image }}" alt="" class="img-thumbnail mt-2" width="300">
+    </div>
+
+    <fieldset class="form-group">
+        <legend class="col-form-label pt-0">Toy Color:</legend>
+        <!-- Radio Buttons for Colors, with dynamic checking -->
+    {{#equal mobile.color "Black"}}
+   <input type="radio" name="color" value="Black" checked="true"> Black
+   <input type="radio" name="color" value="White"> White
+   <input type="radio" name="color" value="Yellow"> Yellow
+   <input type="radio" name="color" value="Blue"> Blue
+   {{/equal}}
+   {{#equal mobile.color "White"}}
+   <input type="radio" name="color" value="Black"> Black
+   <input type="radio" name="color" value="White" checked="true"> White
+   <input type="radio" name="color" value="Yellow"> Yellow
+   <input type="radio" name="color" value="Blue"> Blue
+   {{/equal}}
+   {{#equal mobile.color "Yellow"}}
+   <input type="radio" name="color" value="Black" > Black
+   <input type="radio" name="color" value="White"> White
+   <input type="radio" name="color" value="Yellow" checked="true"> Yellow
+   <input type="radio" name="color" value="Blue"> Blue
+   {{/equal}}
+   {{#equal mobile.color "Blue"}}
+   <input type="radio" name="color" value="Black"> Black
+   <input type="radio" name="color" value="White"> White
+   <input type="radio" name="color" value="Yellow"> Yellow
+   <input type="radio" name="color" value="Blue"  checked="true"> Blue
+   {{/equal}}
+    </fieldset>
+
+    {{!-- <div class="form-group">
+        <label for="price">Toy Brand:</label>
+        <input type="number" class="form-control" name="brand" id="brand" required value="{{ toy.brand}}">
+    </div> --}}
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+

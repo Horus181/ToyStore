@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<div class="container mt-3">
+    <div class="mb-3">
+        <a class="btn btn-info" href="/toy/add">Add new Toy</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Toy model</th>
+                    <th>Toy color</th>
+                    <th>Toy brand</th>
+                    <th>Toy image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each toys}}
+                <tr>
+                    <td>{{ model }}</td>
+                    <td>{{ color }}</td>
+                    <td>{{ manufacturer.name }}</td>
+                    <td>
+                        <img src="{{ image }}" alt="" class="img-fluid" style="width: 100px; height: 120px;">
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

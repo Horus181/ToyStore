@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<div class="container mt-3">
+    <div class="mb-3">
+        <a class="btn btn-info" href="/country/add">Add new country</a>
+        <a class="btn btn-danger" href="/country/deleteall">Delete all</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-secondary">
+            <thead>
+                <tr>
+                    <th>Country name</th>
+                    <th>Country country</th>
+                    <th colspan="2">Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each countrys}}
+                <tr>
+                    <td>
+                        <a href="/country/detail/{{ _id }}">{{ name }}</a>
+                    </td>
+                    <td>{{ country }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="/country/edit/{{ _id }}">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="/country/delete/{{ _id }}"
+                        onclick="return confirm('Are you sure to delete this Country?');">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <style>
+        body {
+  font-family: 'Arial', sans-serif;
+  background: url('background-image-url.jpg');
+  background-size: cover;
+  background-color: aqua;
+}
+
+.table {
+  background-color:black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.form-control, .btn {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .table, .form-control, .btn {
+      width: 100%;
+      box-sizing: border-box;
+  }
+}
+    </style>
+</head>
+<body>
+    
+
+<div class="container mt-3" action="/toy/">
+    <div class="row mb-3">
+        <div class="col">
+            <a class="btn btn-info" href="/toy/add">Add new toy</a>
+            <a class="btn btn-primary" href="/toy/sort/asc">Sort ASC</a>
+            <a class="btn btn-secondary" href="/toy/sort/desc">Sort DESC</a>
+        </div>
+        <div class="col-md-4">
+            <form action="/toy/search" method="post">
+                <input class="form-control" type="search" name="keyword" placeholder="Search by toy model" required>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th>Toy model</th>
+                    <th>Toy price</th>
+                    <th>Toy color</th>
+                    <th>Toy manufacturer</th>
+                    <th>Toy country</th>
+                    <th>Toy brand</th>
+                    <th>Toy image</th>
+              
+                   <th colspan="2">Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each toys }}
+                <tr>
+                    <td>{{ model }}</td>
+                    <td>{{ price }}</td>
+                    <td>{{ color }}</td>
+                    <td>{{ manufacturer.name }}</td>
+                    <td>{{ country.name }}</td>
+                    <td>{{ brand.name }}</td>
+                    <td><img src="{{ image }}" alt="" class="img-fluid" style="width: 100px; height: 120px;"></td>
+                    <td><a class="btn btn-warning" href="/toy/edit/{{ _id }}">Edit</a></td>
+                    <td>
+                        <a class="btn btn-danger" href="/toy/delete/{{ _id }}" onclick="return confirm('Are you sure to delete this toy?');">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

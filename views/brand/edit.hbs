@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<form action="/brand/edit/{{ brand._id }}" method="post" class="p-3">
+    <h1 class="mb-3">Edit Brand</h1>
+
+    <div class="form-group">
+        <label for="name">brand name:</label>
+        <input type="text" class="form-control" name="name" id="name" value="{{ brand.name }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>

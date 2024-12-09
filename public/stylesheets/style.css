@@ -1,0 +1,48 @@
+.carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('background-image-url.jpg');
+  background-size: cover;
+}
+
+.table {
+  background-color:black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.form-control, .btn {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .table, .form-control, .btn {
+      width: 100%;
+      box-sizing: border-box;
+  }
+}
